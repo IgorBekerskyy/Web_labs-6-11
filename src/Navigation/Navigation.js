@@ -2,6 +2,7 @@ import React from 'react';
 import { NavList, NavUl, Navigat } from './Navigation.styled';
 import {Switch, BrowserRouter as Router, Route, NavLink} from "react-router-dom";
 import Home from "../Home/Home";
+import Planes from '../Planes/Planes';
 
 const Navigation = () => { 
     return(
@@ -15,15 +16,15 @@ const Navigation = () => {
                     <NavLink exact to="/planes" activeClassName="selected">PLANES</NavLink>
                 </NavList>
                 <NavList>
-                    <NavLink exact to="/sale" activeClassName="selected" >SALES</NavLink>
+                    <NavLink exact to="/sales" activeClassName="selected" >SALES</NavLink>
                 </NavList>
             </NavUl>       
             <Switch>
                 <Route path="/planes">
-                    <div> It is list of planes</div>
+                    <Planes/>
                 </Route>
-                <Route path="/sale">
-                    <div> It is list of sales</div>
+                <Route path="/sales">
+                    <div>Hello it is sales</div>
                 </Route>
                 <Route path="/">
                     <Home/>                
