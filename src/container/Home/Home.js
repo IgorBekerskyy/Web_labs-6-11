@@ -7,7 +7,7 @@ import {ReactComponent as ActiveDot } from "./../../icons/ActiveDot.svg";
 import {ReactComponent as Dot } from "./../../icons/Dot.svg";
 import kyiv from "./../../icons/34200.jpg";
 import karpaty from "./../../icons/83ed9178f6d0cccf5cf63ce3e31e6c4c.jpg";
-import CardItem from './../../components/CardItem/CardsItem'
+import CardItem from '../../components/CardItem/CardsItem.js'
 
 const data = [
     {
