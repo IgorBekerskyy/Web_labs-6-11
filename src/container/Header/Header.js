@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HeaderOuter, Head, StyledLogo } from './Header.styled';
 import {ReactComponent as LogoMy } from "./../../icons/planes_logo.svg"
@@ -16,3 +17,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -61,6 +61,7 @@ export const MostPopularTitle = styled.div`
 
 export const Cards = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
 `;
@@ -80,3 +81,19 @@ export const Dots = styled.div`
     align-items: center;
     width: 170px;
 `;
+
+export const ViewMoreBtn = styled.button`
+    :hover{
+        cursor: pointer;
+        transform: scale(1.05);
+        box-shadow: 5px 4px 30px rgba(33, 131, 120, 0.3);
+    }
+    
+    margin: 20px 600px;
+    background: #218378;
+    padding: 12px 26px;
+    border-radius: 16px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+`

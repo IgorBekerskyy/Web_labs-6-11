@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {CardContainer, BootsPhoto, CardInfo, CardTitle, CardDescription, Price, ShopNowBtn} from './CardsItem.styled';
 
@@ -7,9 +8,9 @@ const CardItem = ({placePhoto, name, time, height, priceInUAH}) => {
             <BootsPhoto src={placePhoto}/>
             <CardInfo>
                 <CardTitle>Journey</CardTitle>
-                <CardDescription> {name} {time} landscape, with height of flight {height} metres. </CardDescription>
+                <CardDescription> {name} {time} landscapes, with height in metres {height}. </CardDescription>
                 <Price>$ {priceInUAH}</Price>
-                <ShopNowBtn>Reserve</ShopNowBtn>
+                <ShopNowBtn>Reserve now</ShopNowBtn>
             </CardInfo>
         </CardContainer>
     );

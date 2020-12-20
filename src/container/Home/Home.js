@@ -1,47 +1,79 @@
-import React from 'react';
-import {Advertisment, AdvertismentTitle, AdvertismentText, ShowMoreBtn, MostPopular, MostPopularTitle, Cards, Slider, Dots, HomePage} from './Home.styled'
+
+import React, {useState, useEffect} from 'react';
+import {Advertisment, AdvertismentTitle, AdvertismentText, ShowMoreBtn, MostPopular, MostPopularTitle, Cards, HomePage, ViewMoreBtn} from './Home.styled'
 import {ReactComponent as Line } from "./../../icons/line.svg";
-import {ReactComponent as LeftBtn } from "./../../icons/LeftBtn.svg";
-import {ReactComponent as RightBtn } from "./../../icons/RightBtn.svg";
-import {ReactComponent as ActiveDot } from "./../../icons/ActiveDot.svg";
-import {ReactComponent as Dot } from "./../../icons/Dot.svg";
-import kyiv from "./../../icons/34200.jpg";
 import karpaty from "./../../icons/83ed9178f6d0cccf5cf63ce3e31e6c4c.jpg";
+import kyiv from "./../../icons/Kyiv.png";
+import lviv from "./../../icons/catalog/lviv.jpg";
+import Svityaz from "./../../icons/catalog/svityaz.jpg";
 import CardItem from './../../components/CardItem/CardsItem'
 
 const data = [
     {
+        
         placePhoto: kyiv,
         name: 'Kyiv',
         time: 'night',
         priceInUAH: 2500,
-        height: 2000,
+        height: 2500       
     },
+
     {
+        
+        placePhoto: lviv,
+        name: 'Lviv',
+        time: 'morning',
+        priceInUAH: 3000,
+        height: 2000       
+    },
+
+    {
+        
         placePhoto: karpaty,
         name: 'Karpaty',
-        time: 'afternoon',
-        priceInUAH: 3500,
-        height: 3000,
+        time: 'evening',
+        priceInUAH: 4500,
+        height: 2700       
     },
+
+    {
+        
+        placePhoto: Svityaz,
+        name: 'Svityaz',
+        time: 'afternoon',
+        priceInUAH: 2000,
+        height: 2100       
+    }
 ];
 
 const Home = () => { 
+    const [itemsToShow, setItemsToShow] = useState(data.slice(0, 2));
+    const [isViewMore, setIsViewMore] = useState(false);
+
+    const showMore = () => {
+        setItemsToShow(data);
+        setIsViewMore(true);
+      };
+
+    const showLess = () => {
+        setItemsToShow(data.slice(0, 2));
+        setIsViewMore(false);
+    };
     return(
         <HomePage>
             <Advertisment>
                 <AdvertismentTitle>Flights over city </AdvertismentTitle>
-                <AdvertismentText>If you want to enjoy the view of Ukrainian cities from a height, click below </AdvertismentText>
+                <AdvertismentText> If you want to enjoy the view of Ukrainian cities from a height, click below</AdvertismentText>
                 <ShowMoreBtn>Show me more</ShowMoreBtn>
             </Advertisment>
             <MostPopular>
                 <MostPopularTitle>
                     <Line/>
-                    <p>The most popular landscapes</p>
+                    <p>The most popular this season</p>
                     <Line/>
                 </MostPopularTitle>
                 <Cards>
-                    {data.map(({placePhoto, name, time, priceInUAH, height }, idx) => (
+                    {itemsToShow.map(({placePhoto, name, time, priceInUAH, height }, idx) => (
                         <CardItem
                             placePhoto={placePhoto}
                             name={name}
@@ -52,16 +84,8 @@ const Home = () => {
                         />
                     ))}
                 </Cards>
-                <Slider>
-                    <LeftBtn/>
-                    <Dots>
-                        <ActiveDot/>
-                        <Dot/>
-                        <Dot/>
-                        <Dot/>
-                    </Dots>
-                    <RightBtn/>
-                </Slider>
+                {!isViewMore && (<ViewMoreBtn onClick={() => showMore()}>View more</ViewMoreBtn>)}
+                {isViewMore && (<ViewMoreBtn onClick={() => showLess()}>View less</ViewMoreBtn>)}
             </MostPopular>
         </HomePage>);
 };

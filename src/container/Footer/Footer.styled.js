@@ -30,3 +30,4 @@ export const StyledRights = styled.div`
     margin-top: 20px;
     padding:20px 545px;
 `;
+
